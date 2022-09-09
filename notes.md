@@ -73,3 +73,66 @@ const client = new ApolloClient({
 
 ```
 Now we are providing the client connection to the graphql to the server to our entire react application. Now we can make graphql queries from inside of any components. 
+
+
+```
+import { useQuery, gql } from '@apollo/client'
+```
+
+useQuery - is a hook to send query to a graphql server 
+it's like useFetch hook but instead of passing in a api endpoint 
+we pass in graphql query. 
+
+gql - used by apollo to convert a query string into a format it can use. 
+
+
+in app.js
+```
+
+const REVIEWS = gql`
+    query GetReviews { 
+        reviews { 
+            data { 
+                attributes { 
+                    title,
+                    body,
+                    rating,
+                    id
+                }
+            }
+        }
+    }
+`
+
+const Homepage = () => {
+    const { loading, error, data } = useQuery(REVIEWS)
+}
+```
+
+
+### Single review search  
+
+```
+const REVIEW = gql`
+  query GetReview($id: ID!) {
+    review(id: $id) {
+        id
+        attributes { 
+            title
+            rating
+            body
+        }
+    }
+  }
+`;
+```
+
+
+`($id : ID! )` 
+
+`$id` is the variable 
+
+`ID` is type 
+
+`!`  means it cannot be null  
+

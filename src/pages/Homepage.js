@@ -1,10 +1,10 @@
-import useFetch from "../hooks/useFetch";
+// import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 
 const Homepage = () => {
-  const { data, error, loading } = useFetch(
-    "http://localhost:1337/api/reviews"
-  );
+//   const { data, error, loading } = useFetch(
+//     "http://localhost:1337/api/reviews"
+//   );
 
   return (
     <div>

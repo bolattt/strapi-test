@@ -8,8 +8,8 @@ import Category from "./pages/Category";
 import SiteHeader from "./components/SiteHeader";
 
 const client = new ApolloClient({
-  uri: "http://localhost:1337/graphql",
-  cache: new InMemoryCache(),
+uri: "http://localhost:1337/graphql",
+cache: new InMemoryCache(),
 });
 
 function App() {

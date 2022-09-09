@@ -29,7 +29,6 @@ const ReviewDetails = () => {
   //   );
 
   console.log(data);
-  console.log(data.review.data.attributes);
   return (
     <div>
       {loading && <div>Loading...</div>}

@@ -136,3 +136,34 @@ const REVIEW = gql`
 
 `!`  means it cannot be null  
 
+
+### Using variables in query  
+
+```
+const REVIEW = gql`
+  query GetReview($id: ID!) {
+    review(id: $id) {
+      data {
+        id
+        attributes {
+          title
+          rating
+          body
+        }
+      }
+    }
+  }
+`;
+
+const ReviewDetails = () => {
+  const { id } = useParams();
+  const { loading, error, data } = useQuery(REVIEW, {
+    variables: {
+      id: id,
+    },
+  });
+```
+
+Pass in another argument to useQuery 
+
+
